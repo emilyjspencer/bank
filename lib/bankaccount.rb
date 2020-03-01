@@ -1,9 +1,10 @@
 class BankAccount
 
-  attr_reader :balance
+  attr_reader :balance, :display
 
-  def initialize
+  def initialize(display = Display.new)
     @balance = 0
+    @display = display
   end 
 
   def deposit(amount)
@@ -12,6 +13,10 @@ class BankAccount
 
   def withdraw(amount)
     @balance -= amount
+  end 
+
+  def print_header
+    display.print 
   end 
 
 end 
